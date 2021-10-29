@@ -23,8 +23,6 @@ public class SpeciesDbHelper extends CommonDbHelper {
                 + SpeciesContract.SpeciesEntry.FAMILY + " TEXT NOT NULL,"
                 + SpeciesContract.SpeciesEntry.ENDANGERED + " INTEGER NOT NULL DEFAULT 0,"
                 + "UNIQUE (" + SpeciesContract.SpeciesEntry.VULGAR_NAME + "))");
-
-        save(new Species ("Cheetah", "Acinonyx jubatus", "Felines", false));
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -37,7 +35,7 @@ public class SpeciesDbHelper extends CommonDbHelper {
                 species.toContentValues());
     }
 
-    public Species getByVulgarName(String vulgarName) {
+    public Species getById(String vulgarName) {
         Species species = null;
         Cursor cursor = null;
         try {
@@ -54,7 +52,9 @@ public class SpeciesDbHelper extends CommonDbHelper {
                         SpeciesContract.SpeciesEntry.SCIENTIFIC_NAME));
                 @SuppressLint("Range") String family = cursor.getString(cursor.getColumnIndex(
                         SpeciesContract.SpeciesEntry.FAMILY));
-                species = new Species(vulgarName, scientificName, family, false);
+                @SuppressLint("Range") int endangered = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        SpeciesContract.SpeciesEntry.ENDANGERED)));
+                species = new Species(vulgarName, scientificName, family, endangered == 1);
             }
         } catch (Exception exception) {
             // TODO: Se debe de implementar las excepciones

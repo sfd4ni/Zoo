@@ -4,10 +4,10 @@ import static org.junit.Assert.fail;
 
 import android.content.Context;
 
+
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 import es.system.daniel.zoo.dao.helpers.SpeciesDbHelper;
 import es.system.daniel.zoo.model.Species;
@@ -15,9 +15,9 @@ import es.system.daniel.zoo.model.Species;
 
 public class CommonUtilsTest {
 
-    static Context appContext = null;
-    static Species species = null;
-    static SpeciesDbHelper speciesDbHelper;
+    public static Context appContext = null;
+    public static Species species = null;
+    public static SpeciesDbHelper speciesDbHelper;
 
     @BeforeClass
     public static void beforeClass() {

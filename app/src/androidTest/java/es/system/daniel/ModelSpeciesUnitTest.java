@@ -1,7 +1,8 @@
 package es.system.daniel;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertNotNull;
+
 
 import android.content.Context;
 
@@ -11,8 +12,8 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.List;
 
+import es.system.daniel.zoo.dao.helpers.SpeciesDbHelper;
 import es.system.daniel.zoo.model.Species;
 
 /**
@@ -23,5 +24,9 @@ import es.system.daniel.zoo.model.Species;
 @RunWith(AndroidJUnit4.class)
 public class ModelSpeciesUnitTest extends CommonUtilsTest {
 
-
+    @Test
+    public void findUserTest() {
+        Species speciesFind = speciesDbHelper.getById(species.getVulgarName());
+        assertNotNull("Species found is null", speciesFind);
+    }
 }
