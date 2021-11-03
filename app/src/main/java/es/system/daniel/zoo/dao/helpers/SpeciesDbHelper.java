@@ -7,8 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.Collections;
 
+import es.system.daniel.zoo.dao.contracts.AnimalContract;
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
 import es.system.daniel.zoo.dao.contracts.ZooContract;
+import es.system.daniel.zoo.model.Animal;
 import es.system.daniel.zoo.model.Species;
 
 public class SpeciesDbHelper extends CommonDbHelper {
@@ -69,5 +71,30 @@ public class SpeciesDbHelper extends CommonDbHelper {
         }
 
         return species;
+    }
+    /**
+     * Funcion encargada en eliminar un elemento de la BBDD
+     * @param vulgarName identificador de consulta de la BBDD
+     * @return valor con el resultado de la operacion
+     */
+    public int delete(String vulgarName) {
+        return super.delete(SpeciesContract.SpeciesEntry.TABLE_NAME,
+                SpeciesContract.SpeciesEntry.VULGAR_NAME + " = ?",
+                new String[]{vulgarName});
+    }
+
+
+    /**
+     * Funcion encargada de realizar la actualizacion de un elemento
+     * de la BBDD
+     * @param species species a actualizar en la app
+     * @param vulgarName nombre vulgar de la species a actualizar
+     * @return intero con el valor de la operacion
+     */
+    public int update(Species species, String vulgarName) {
+        return super.update(SpeciesContract.SpeciesEntry.TABLE_NAME,
+                species.toContentValues(),
+                SpeciesContract.SpeciesEntry.VULGAR_NAME + " = ?",
+                new String[]{vulgarName});
     }
 }

@@ -19,6 +19,7 @@ public class AnimalDbHelper extends CommonDbHelper {
                 animal.toContentValues());
     }
 
+
     public Animal getById(int id) {
         Animal animal = null;
         Cursor cursor = null;
@@ -55,4 +56,31 @@ public class AnimalDbHelper extends CommonDbHelper {
 
         return animal;
     }
+
+    /**
+     * Funcion encargada en eliminar un elemento de la BBDD
+     * @param id identificador de consulta de la BBDD
+     * @return valor con el resultado de la operacion
+     */
+    public int delete(String id) {
+        return super.delete(AnimalContract.AnimalEntry.TABLE_NAME,
+                AnimalContract.AnimalEntry._ID + " = ?",
+                new String[]{id});
+    }
+
+
+    /**
+     * Funcion encargada de realizar la actualizacion de un elemento
+     * de la BBDD
+     * @param animal animal a actualizar en la app
+     * @param id idea relacionado
+     * @return intero con el valor de la operacion
+     */
+    public int update(Animal animal, String id) {
+        return super.update(AnimalContract.AnimalEntry.TABLE_NAME,
+                animal.toContentValues(),
+                AnimalContract.AnimalEntry._ID + " = ?",
+                new String[]{id});
+    }
+
 }

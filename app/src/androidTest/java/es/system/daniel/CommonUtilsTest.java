@@ -35,7 +35,7 @@ public class CommonUtilsTest {
             animalDbHelper = new AnimalDbHelper(appContext);
             species = new Species ("Cheetah", "Acinonyx jubatus", "Felines", false);
             zoo = new Zoo("Central Park Zoo", "New York", "USA", 200000, 200000000);
-            animal = new Animal("Femenino", "España", "Europa", 1, 1, 1, 1994);
+            animal = new Animal("Female", "España", "Europa", 1, 1, 1, 1994);
             zooDbHelper.save(zoo);
             speciesDbHelper.save(species);
             animalDbHelper.save(animal);

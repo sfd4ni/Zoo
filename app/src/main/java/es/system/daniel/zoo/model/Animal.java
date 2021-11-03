@@ -101,12 +101,12 @@ public class Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
-        return Objects.equals(this.id, animal.id)
-                && Objects.equals(this.sex, animal.sex)
-                && Objects.equals(this.country, animal.country)
-                && Objects.equals(this.continent, animal.continent)
-                && Objects.equals(this.speciesId, animal.speciesId)
-                && Objects.equals(this.zooId, animal.zooId)
-                && Objects.equals(this.birthYear, animal.birthYear);
+        return Objects.equals(this.id, animal.getZooId())
+                && Objects.equals(this.sex, animal.getSex())
+                && Objects.equals(this.country, animal.getCountry())
+                && Objects.equals(this.continent, animal.getContinent())
+                && Objects.equals(this.speciesId, animal.getSpeciesId())
+                && Objects.equals(this.zooId, animal.getZooId())
+                && Objects.equals(this.birthYear, animal.getBirthYear());
     }
 }

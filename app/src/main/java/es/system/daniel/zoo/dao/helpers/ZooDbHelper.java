@@ -71,4 +71,29 @@ public class ZooDbHelper extends CommonDbHelper {
 
         return zoo;
     }
+    /**
+     * Funcion encargada en eliminar un elemento de la BBDD
+     * @param name identificador de consulta de la BBDD
+     * @return valor con el resultado de la operacion
+     */
+    public int delete(String name) {
+        return super.delete(ZooContract.ZooEntry.TABLE_NAME,
+                ZooContract.ZooEntry.NAME + " = ?",
+                new String[]{name});
+    }
+
+
+    /**
+     * Funcion encargada de realizar la actualizacion de un elemento
+     * de la BBDD
+     * @param zoo zoo a actualizar en la app
+     * @param name nombre del zoo
+     * @return intero con el valor de la operacion
+     */
+    public int update(Zoo zoo, String name) {
+        return super.update(ZooContract.ZooEntry.TABLE_NAME,
+                zoo.toContentValues(),
+                ZooContract.ZooEntry.NAME + " = ?",
+                new String[]{name});
+    }
 }
