@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.Collections;
 
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
+import es.system.daniel.zoo.dao.contracts.ZooContract;
 import es.system.daniel.zoo.model.Species;
 
 public class SpeciesDbHelper extends CommonDbHelper {
@@ -15,6 +16,8 @@ public class SpeciesDbHelper extends CommonDbHelper {
         super(context);
     }
 
+    /*
+    @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE " + SpeciesContract.SpeciesEntry.TABLE_NAME + " ("
                 + SpeciesContract.SpeciesEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -24,9 +27,11 @@ public class SpeciesDbHelper extends CommonDbHelper {
                 + SpeciesContract.SpeciesEntry.ENDANGERED + " INTEGER NOT NULL DEFAULT 0,"
                 + "UNIQUE (" + SpeciesContract.SpeciesEntry.VULGAR_NAME + "))");
     }
+
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        // No hay operaciones
+
     }
 
 
@@ -57,13 +62,12 @@ public class SpeciesDbHelper extends CommonDbHelper {
                 species = new Species(vulgarName, scientificName, family, endangered == 1);
             }
         } catch (Exception exception) {
-            // TODO: Se debe de implementar las excepciones
         } finally {
             if (!cursor.isClosed()) {
                 cursor.close();
             }
         }
 
-        return species; //Retornamos una lista vacia
+        return species;
     }
 }

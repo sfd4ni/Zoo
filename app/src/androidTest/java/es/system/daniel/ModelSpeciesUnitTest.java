@@ -1,6 +1,7 @@
 package es.system.daniel;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -25,8 +26,9 @@ import es.system.daniel.zoo.model.Species;
 public class ModelSpeciesUnitTest extends CommonUtilsTest {
 
     @Test
-    public void findUserTest() {
+    public void findSpeciesTest() {
         Species speciesFind = speciesDbHelper.getById(species.getVulgarName());
         assertNotNull("Species found is null", speciesFind);
+        assertEquals("Species created is not equal to species found.", speciesFind, species);
     }
 }

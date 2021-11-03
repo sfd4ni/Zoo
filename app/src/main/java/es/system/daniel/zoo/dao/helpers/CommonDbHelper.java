@@ -6,10 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import es.system.daniel.zoo.dao.contracts.AnimalContract;
+import es.system.daniel.zoo.dao.contracts.SpeciesContract;
+import es.system.daniel.zoo.dao.contracts.ZooContract;
+
 public class CommonDbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "notas.db";
+    public static final String DATABASE_NAME = "zoos.db";
 
     public CommonDbHelper(Context context) {
         super(context, DATABASE_NAME,
@@ -27,7 +31,31 @@ public class CommonDbHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        // No hay operaciones
+        sqLiteDatabase.execSQL("CREATE TABLE " + SpeciesContract.SpeciesEntry.TABLE_NAME + " ("
+                + SpeciesContract.SpeciesEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + SpeciesContract.SpeciesEntry.VULGAR_NAME + " TEXT NOT NULL,"
+                + SpeciesContract.SpeciesEntry.SCIENTIFIC_NAME + " TEXT NOT NULL,"
+                + SpeciesContract.SpeciesEntry.FAMILY + " TEXT NOT NULL,"
+                + SpeciesContract.SpeciesEntry.ENDANGERED + " INTEGER NOT NULL DEFAULT 0,"
+                + "UNIQUE (" + SpeciesContract.SpeciesEntry.VULGAR_NAME + "))");
+        sqLiteDatabase.execSQL("CREATE TABLE " + ZooContract.ZooEntry.TABLE_NAME + " ("
+                + ZooContract.ZooEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ZooContract.ZooEntry.NAME + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.CITY + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.COUNTRY + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.SIZE + " INTEGER NOT NULL,"
+                + ZooContract.ZooEntry.YEARLY_INCOME + " INTEGER NOT NULL,"
+                + "UNIQUE (" + ZooContract.ZooEntry.NAME + "))");
+        sqLiteDatabase.execSQL("CREATE TABLE " + AnimalContract.AnimalEntry.TABLE_NAME + " ("
+                + AnimalContract.AnimalEntry._ID + " INTEGER PRIMARY KEY,"
+                + AnimalContract.AnimalEntry.SEX + " TEXT NOT NULL,"
+                + AnimalContract.AnimalEntry.COUNTRY + " TEXT NOT NULL,"
+                + AnimalContract.AnimalEntry.CONTINENT + " TEXT NOT NULL,"
+                + AnimalContract.AnimalEntry.BIRTH_YEAR + " INTEGER NOT NULL,"
+                + AnimalContract.AnimalEntry.SPECIES_ID + " INTEGER NOT NULL REFERENCES "
+                + SpeciesContract.SpeciesEntry.TABLE_NAME + "(" + SpeciesContract.SpeciesEntry._ID + "),"
+                + AnimalContract.AnimalEntry.ZOO_ID + " INTEGER NOT NULL REFERENCES "
+                + ZooContract.ZooEntry.TABLE_NAME + "(" + ZooContract.ZooEntry._ID + "))");
     }
 
     @Override

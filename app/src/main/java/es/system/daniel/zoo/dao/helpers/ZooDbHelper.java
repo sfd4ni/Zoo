@@ -1,4 +1,74 @@
 package es.system.daniel.zoo.dao.helpers;
 
-public class ZooDbHelper {
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import es.system.daniel.zoo.dao.contracts.SpeciesContract;
+import es.system.daniel.zoo.dao.contracts.ZooContract;
+import es.system.daniel.zoo.model.Species;
+import es.system.daniel.zoo.model.Zoo;
+
+public class ZooDbHelper extends CommonDbHelper {
+    public ZooDbHelper (Context context) {
+        super(context);
+    }
+
+    /*@Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("CREATE TABLE " + ZooContract.ZooEntry.TABLE_NAME + " ("
+                + ZooContract.ZooEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ZooContract.ZooEntry.NAME + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.CITY + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.COUNTRY + " TEXT NOT NULL,"
+                + ZooContract.ZooEntry.SIZE + " INTEGER NOT NULL,"
+                + ZooContract.ZooEntry.YEARLY_INCOME + " INTEGER NOT NULL,"
+                + "UNIQUE (" + ZooContract.ZooEntry.NAME + "))");
+    }
+
+     */
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ZooContract.ZooEntry.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+    }
+
+    public long save(Zoo zoo) {
+        return super.save(ZooContract.ZooEntry.TABLE_NAME,
+                zoo.toContentValues());
+    }
+
+    public Zoo getById(String name) {
+        Zoo zoo = null;
+        Cursor cursor = null;
+        try {
+            cursor = super.getAll(ZooContract.ZooEntry.TABLE_NAME,
+                    null,
+                    ZooContract.ZooEntry.NAME + " = ?",
+                    new String[]{name},
+                    null,
+                    null,
+                    null);
+
+            if (cursor.moveToFirst()) {
+                @SuppressLint("Range") String city = cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.CITY));
+                @SuppressLint("Range") String country = cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.COUNTRY));
+                @SuppressLint("Range") int size = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.SIZE)));
+                @SuppressLint("Range") int yearlyIncome = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.YEARLY_INCOME)));
+                zoo = new Zoo(name, city, country, size, yearlyIncome);
+            }
+        } catch (Exception exception) {
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return zoo;
+    }
 }
