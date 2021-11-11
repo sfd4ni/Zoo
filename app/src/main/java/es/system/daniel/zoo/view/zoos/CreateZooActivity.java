@@ -1,14 +1,14 @@
-package es.system.daniel.zoo.view;
+package es.system.daniel.zoo.view.zoos;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import es.system.daniel.R;
 
-public class DeleteZooActivity extends AppCompatActivity {
+public class CreateZooActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class DeleteZooActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_zoo);
     }
     public void changeZoosView(View view) {
-        Intent previousView = new Intent(DeleteZooActivity.this,
+        Intent previousView = new Intent(CreateZooActivity.this,
                 ZoosActivity.class);
         startActivity(previousView);
     }

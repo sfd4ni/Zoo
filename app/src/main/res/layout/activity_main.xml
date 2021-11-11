@@ -10,9 +10,23 @@
         android:id="@+id/changeViewToZoos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change_view_zoo"
+        android:layout_marginTop="130dp"
         android:onClick="changeZoosView"
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="341dp"
+        android:text="@string/change_view_zoo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/changeViewToAnimals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="changeAnimalsView"
+        android:text="@string/change_view_animal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

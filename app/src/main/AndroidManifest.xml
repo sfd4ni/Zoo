@@ -10,10 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zoo">
         <activity
-            android:name=".zoo.view.ZoosActivity"
+            android:name=".zoo.view.animals.DeleteAnimalActivity"
             android:exported="true" />
         <activity
-            android:name=".zoo.view.UpdateZooActivity"
+            android:name=".zoo.view.animals.ReadAnimalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.animals.UpdateAnimalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.animals.CreateAnimalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.animals.AnimalsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.zoos.ReadZooActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.zoos.DeleteZooActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.zoos.CreateZooActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.zoos.ZoosActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.zoos.UpdateZooActivity"
             android:exported="true" />
         <activity
             android:name=".zoo.view.MainActivity"

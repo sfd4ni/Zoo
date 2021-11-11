@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".zoo.view.zoos.ReadZooActivity">
+    tools:context=".zoo.view.animals.ReadAnimalActivity">
 
     <Button
-        android:id="@+id/changeReadViewToZoos"
+        android:id="@+id/changeCreateViewToAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:onClick="changeZoosView"
-        android:text="@string/change_view_zoo"
+        android:onClick="changeAnimalsView"
+        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

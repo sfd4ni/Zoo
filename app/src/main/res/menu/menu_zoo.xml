@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/createZoo"
+        android:title="@string/create" />
+    <item android:id="@+id/deleteZoo"
+        android:title="@string/delete" />
+    <item android:id="@+id/updateZoo"
+        android:title="@string/update" />
+    <item android:id="@+id/readZoo"
+        android:title="@string/read" />
+</menu>
