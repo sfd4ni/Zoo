@@ -24,10 +24,15 @@
     <string name="change_view_animal_update">Update animal</string>
     <string name="change_view_animal_delete">Delete animal</string>
     <string name="change_view_animal_create">Create animal</string>
-    <string name="change_view_animal_read">Find animal</string>
+    <string name="change_view_animal_read">Show animal information</string>
     <string name="change_view_animal">Go to animal</string>
     <string name="create">Create</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
     <string name="read">Read</string>
+    <string name="change_view_species_update">Update species</string>
+    <string name="change_view_species_delete">Delete species</string>
+    <string name="change_view_species_read">Show species information</string>
+    <string name="change_view_species_create">Create species</string>
+    <string name="change_view_species">Go to Species</string>
 </resources>

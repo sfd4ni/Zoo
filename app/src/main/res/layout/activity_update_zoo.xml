@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".zoo.view.zoos.UpdateZooActivity">
 
-    <!--
+
     <Button
         android:id="@+id/changeUpdateViewToZoos"
         android:layout_width="wrap_content"
@@ -17,14 +17,23 @@
         android:text="@string/change_view_zoo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-        -->
-
-    <fragment
-        android:name="es.system.daniel.zoo.fragment.Fragmentzoo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:id="@+id/zoo"
-        tools:layout="@layout/fragment_zoo" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Update zoo"
+        app:layout_constraintStart_toEndOf="@+id/changeUpdateViewToZoos"
+        app:layout_constraintTop_toBottomOf="@+id/changeUpdateViewToZoos" />
+    <!--¡
+        <fragment
+            android:name="es.system.daniel.zoo.fragment.Fragmentzoo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:id="@+id/zoo"
+            tools:layout="@layout/fragment_zoo" />
+    -->
+    </androidx.constraintlayout.widget.ConstraintLayout>

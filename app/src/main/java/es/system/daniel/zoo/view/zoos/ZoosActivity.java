@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import es.system.daniel.R;
@@ -46,5 +47,37 @@ public class ZoosActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_zoo, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent nextView = null;
+        switch (item.getItemId()) {
+
+            case R.id.deleteZoo:
+                nextView = new Intent(ZoosActivity.this,
+                        DeleteZooActivity.class);
+                startActivity(nextView);
+                return true;
+            case R.id.updateZoo:
+
+                nextView = new Intent(ZoosActivity.this,
+                        UpdateZooActivity.class);
+                startActivity(nextView);
+                return true;
+            case R.id.createZoo:
+                nextView = new Intent(ZoosActivity.this,
+                        CreateZooActivity.class);
+                startActivity(nextView);
+                return true;
+            case R.id.readZoo:
+                nextView = new Intent(ZoosActivity.this,
+                        ReadZooActivity.class);
+                startActivity(nextView);
+                return true;
+            default:
+
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

@@ -4,60 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".zoo.view.zoos.ZoosActivity">
+    tools:context=".zoo.view.species.SpeciesActivity">
 
     <Button
         android:id="@+id/changeViewMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="36dp"
         android:onClick="changeMainView"
         android:text="@string/change_view_main"
-        app:layout_constraintBottom_toTopOf="@+id/changeViewZooRead"
-        app:layout_constraintEnd_toEndOf="@+id/changeViewZooRead" />
+        app:layout_constraintBottom_toTopOf="@+id/changeViewSpeciesRead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/changeViewZooUpdate"
+        android:id="@+id/changeViewSpeciesUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="53dp"
-        android:onClick="changeUpdateZooView"
-        android:text="@string/change_view_zoo_update"
+        android:onClick="changeUpdateSpeciesView"
+        android:text="@string/change_view_species_update"
         app:layout_constraintBottom_toTopOf="@+id/changeViewMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/changeViewZooDelete"
+        android:id="@+id/changeViewSpeciesDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="57dp"
-        android:onClick="changeDeleteZooView"
-        android:text="@string/change_view_zoo_delete"
-        app:layout_constraintBottom_toTopOf="@+id/changeViewZooCreate"
-        app:layout_constraintEnd_toEndOf="@+id/changeViewZooCreate" />
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="56dp"
+        android:onClick="changeDeleteSpeciesView"
+        android:text="@string/change_view_species_delete"
+        app:layout_constraintBottom_toTopOf="@+id/changeViewSpeciesCreate"
+        app:layout_constraintStart_toStartOf="@+id/changeViewSpeciesCreate" />
 
     <Button
-        android:id="@+id/changeViewZooCreate"
+        android:id="@+id/changeViewSpeciesCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="65dp"
-        android:onClick="changeCreateZooView"
-        android:text="@string/change_view_zoo_create"
-        app:layout_constraintBottom_toTopOf="@+id/changeViewZooUpdate"
+        android:onClick="changeCreateSpeciesView"
+        android:text="@string/change_view_species_create"
+        app:layout_constraintBottom_toTopOf="@+id/changeViewSpeciesUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/changeViewZooRead"
+        android:id="@+id/changeViewSpeciesRead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="155dp"
-        android:onClick="changeReadZooView"
-        android:text="@string/change_view_zoo_read"
+        android:onClick="changeReadSpeciesView"
+        android:text="@string/change_view_species_read"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

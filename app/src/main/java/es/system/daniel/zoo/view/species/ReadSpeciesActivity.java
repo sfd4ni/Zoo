@@ -1,4 +1,4 @@
-package es.system.daniel.zoo.view.animals;
+package es.system.daniel.zoo.view.species;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,16 +8,16 @@ import android.view.View;
 
 import es.system.daniel.R;
 
-public class CreateAnimalActivity extends AppCompatActivity {
+public class ReadSpeciesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_animal);
+        setContentView(R.layout.activity_read_species);
     }
-    public void changeAnimalsView(View view) {
-        Intent previousView = new Intent(CreateAnimalActivity.this,
-                AnimalsActivity.class);
+    public void changeSpeciesView(View view) {
+        Intent previousView = new Intent(ReadSpeciesActivity.this,
+                SpeciesActivity.class);
         startActivity(previousView);
     }
 }

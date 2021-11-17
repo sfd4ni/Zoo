@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/createAnimal"
+        android:title="@string/create" />
+    <item android:id="@+id/deleteAnimal"
+        android:title="@string/delete" />
+    <item android:id="@+id/updateAnimal"
+        android:title="@string/update" />
+    <item android:id="@+id/readAnimal"
+        android:title="@string/read" />
+</menu>

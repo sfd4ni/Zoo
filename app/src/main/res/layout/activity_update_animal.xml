@@ -7,7 +7,7 @@
     tools:context=".zoo.view.animals.UpdateAnimalActivity">
 
     <Button
-        android:id="@+id/changeCreateViewToAnimal"
+        android:id="@+id/changeUpdateViewToAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -16,4 +16,14 @@
         android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Update animal"
+        app:layout_constraintStart_toEndOf="@+id/changeUpdateViewToAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeUpdateViewToAnimal" />
 </androidx.constraintlayout.widget.ConstraintLayout>

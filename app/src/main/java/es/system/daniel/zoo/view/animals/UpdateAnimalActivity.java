@@ -13,7 +13,7 @@ public class UpdateAnimalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_zoo);
+        setContentView(R.layout.activity_update_animal);
     }
     public void changeAnimalsView(View view) {
         Intent previousView = new Intent(UpdateAnimalActivity.this,

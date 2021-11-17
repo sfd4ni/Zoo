@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".zoo.view.animals.ReadAnimalActivity">
+    tools:context=".zoo.view.species.ReadSpeciesActivity">
 
     <Button
-        android:id="@+id/changeReadViewToAnimal"
+        android:id="@+id/changeReadViewToSpecies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:onClick="changeAnimalsView"
+        android:onClick="changeSpeciesView"
         android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Read animal"
-        app:layout_constraintStart_toEndOf="@+id/changeReadViewToAnimal"
-        app:layout_constraintTop_toBottomOf="@+id/changeReadViewToAnimal" />
+        android:text="Read species"
+        app:layout_constraintStart_toEndOf="@+id/changeReadViewToSpecies"
+        app:layout_constraintTop_toBottomOf="@+id/changeReadViewToSpecies" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.view.View;
 
 import es.system.daniel.R;
 import es.system.daniel.zoo.view.animals.AnimalsActivity;
+import es.system.daniel.zoo.view.species.SpeciesActivity;
 import es.system.daniel.zoo.view.zoos.ZoosActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     public void changeAnimalsView(View view) {
         Intent nextView = new Intent(MainActivity.this,
                 AnimalsActivity.class);
+        startActivity(nextView);
+    }
+    public void changeSpeciesView(View view) {
+        Intent nextView = new Intent(MainActivity.this,
+                SpeciesActivity.class);
         startActivity(nextView);
     }
 }
