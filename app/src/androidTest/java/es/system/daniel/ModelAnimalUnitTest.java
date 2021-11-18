@@ -1,13 +1,19 @@
 package es.system.daniel;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import es.system.daniel.zoo.model.Animal;
+import es.system.daniel.zoo.model.Zoo;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 @RunWith(AndroidJUnit4.class)
 public class ModelAnimalUnitTest extends CommonUtilsTest {
@@ -38,5 +44,12 @@ public class ModelAnimalUnitTest extends CommonUtilsTest {
         assertEquals("Animal created is not equal to animal found.", animalFind, animalUpdated);
         // We set it up to what it was before
         animalDbHelper.update(animal, String.valueOf(animal.getId()));
+    }
+
+    @Test
+    public void findAllAnimalsTest() {
+        List<Animal> animals = animalDbHelper.getAll();
+        assertNotNull("Animal found is null", animals);
+        Assert.assertTrue("There must be at least one animal on the db", animals.size() > 0);
     }
 }

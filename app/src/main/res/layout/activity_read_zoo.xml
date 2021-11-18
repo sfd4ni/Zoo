@@ -16,14 +16,16 @@
         android:text="@string/change_view_zoo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Read zoo"
-        app:layout_constraintStart_toEndOf="@+id/changeReadViewToZoos"
-        app:layout_constraintTop_toBottomOf="@+id/changeReadViewToZoos" />
+
+
+    <ListView
+        android:id="@+id/zoosListView"
+        android:layout_width="283dp"
+        android:layout_height="533dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323"></ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

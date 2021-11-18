@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import es.system.daniel.zoo.dao.contracts.AnimalContract;
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
@@ -36,6 +38,41 @@ public class SpeciesDbHelper extends CommonDbHelper {
 
     }
 
+
+    public List<Species> getAll() {
+        List<Species> speciesList = null;
+        Cursor cursor = null;
+        Species species = null;
+        try {
+            cursor = super.getAll(SpeciesContract.SpeciesEntry.TABLE_NAME,
+                    null, null, null,
+                    null, null, null);
+
+            if(cursor.moveToFirst()){
+                speciesList = new ArrayList<>();
+                do {
+                    @SuppressLint("Range") String vulgarName = cursor.getString(cursor.getColumnIndex(
+                            SpeciesContract.SpeciesEntry.VULGAR_NAME));
+                    @SuppressLint("Range") String scientificName = cursor.getString(cursor.getColumnIndex(
+                            SpeciesContract.SpeciesEntry.SCIENTIFIC_NAME));
+                    @SuppressLint("Range") String family = cursor.getString(cursor.getColumnIndex(
+                            SpeciesContract.SpeciesEntry.FAMILY));
+                    @SuppressLint("Range") int endangered = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            SpeciesContract.SpeciesEntry.ENDANGERED)));
+                    species = new Species(vulgarName, scientificName, family, endangered == 1);
+                    speciesList.add(species);
+                } while (cursor.moveToNext());
+                return speciesList;
+            }
+        } catch (Exception exception) {
+            // TODO: Se debe de implementar las excepciones
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return Collections.emptyList(); //Retornamos una lista vacia
+    }
 
     public long save(Species species) {
         return super.save(SpeciesContract.SpeciesEntry.TABLE_NAME,

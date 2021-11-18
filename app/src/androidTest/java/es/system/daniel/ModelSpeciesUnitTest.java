@@ -10,9 +10,13 @@ import android.content.Context;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.system.daniel.zoo.dao.helpers.SpeciesDbHelper;
 import es.system.daniel.zoo.model.Animal;
@@ -44,5 +48,12 @@ public class ModelSpeciesUnitTest extends CommonUtilsTest {
         assertEquals("Species created is not equal to animal found.", speciesFind, speciesUpdated);
         // We set it up to what it was before
         speciesDbHelper.update(species, speciesUpdated.getVulgarName());
+    }
+
+    @Test
+    public void findAllSpeciesTest() {
+        List<Species> speciesList = speciesDbHelper.getAll();
+        assertNotNull("Species list is null", speciesList);
+        Assert.assertTrue("There must be at least one species on the db", speciesList.size() > 0);
     }
 }

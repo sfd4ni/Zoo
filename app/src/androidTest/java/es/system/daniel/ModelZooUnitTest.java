@@ -1,5 +1,6 @@
 package es.system.daniel;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -9,6 +10,8 @@ import es.system.daniel.zoo.model.Zoo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 @RunWith(AndroidJUnit4.class)
 public class ModelZooUnitTest extends CommonUtilsTest {
@@ -29,5 +32,12 @@ public class ModelZooUnitTest extends CommonUtilsTest {
         assertEquals("Species created is not equal to animal found.", zooFind, zooUpdated);
         // We set it up to what it was before
         zooDbHelper.update(zoo, zooUpdated.getName());
+    }
+
+    @Test
+    public void findAllZoosTest() {
+        List<Zoo> zoos = zooDbHelper.getAll();
+        assertNotNull("Zoo found is null", zoos);
+        Assert.assertTrue("There must be at least one species on the db", zoos.size() > 0);
     }
 }

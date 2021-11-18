@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
 import es.system.daniel.zoo.dao.contracts.ZooContract;
 import es.system.daniel.zoo.model.Species;
@@ -37,6 +41,43 @@ public class ZooDbHelper extends CommonDbHelper {
     public long save(Zoo zoo) {
         return super.save(ZooContract.ZooEntry.TABLE_NAME,
                 zoo.toContentValues());
+    }
+
+    public List<Zoo> getAll() {
+        List<Zoo> zoos = null;
+        Cursor cursor = null;
+        Zoo zoo = null;
+        try {
+            cursor = super.getAll(ZooContract.ZooEntry.TABLE_NAME,
+                    null, null, null,
+                    null, null, null);
+
+            if(cursor.moveToFirst()){
+                zoos = new ArrayList<>();
+                do {
+                    @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(
+                            ZooContract.ZooEntry.NAME));
+                    @SuppressLint("Range") String city = cursor.getString(cursor.getColumnIndex(
+                            ZooContract.ZooEntry.CITY));
+                    @SuppressLint("Range") String country = cursor.getString(cursor.getColumnIndex(
+                            ZooContract.ZooEntry.COUNTRY));
+                    @SuppressLint("Range") int size = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            ZooContract.ZooEntry.SIZE)));
+                    @SuppressLint("Range") int yearlyIncome = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            ZooContract.ZooEntry.YEARLY_INCOME)));
+                    zoo = new Zoo(name, city, country, size, yearlyIncome);
+                    zoos.add(zoo);
+                } while (cursor.moveToNext());
+                return zoos;
+            }
+        } catch (Exception exception) {
+            // TODO: Se debe de implementar las excepciones
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return Collections.emptyList(); //Retornamos una lista vacia
     }
 
     public Zoo getById(String name) {
