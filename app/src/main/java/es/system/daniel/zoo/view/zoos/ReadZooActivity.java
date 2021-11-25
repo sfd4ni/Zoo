@@ -5,6 +5,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,7 +25,6 @@ public class ReadZooActivity extends AppCompatActivity {
 
     private ListView listview;
     private ArrayList<String> names;
-    private Context appContext = null;
     private ZooDbHelper zooDbHelper = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,16 @@ public class ReadZooActivity extends AppCompatActivity {
         listview = findViewById(R.id.zoosListView);
         names = new ArrayList<>();
 
-        appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        zooDbHelper = new ZooDbHelper(appContext);
-
-        /**List<Zoo> zoos = zooDbHelper.getAll();
+        zooDbHelper = new ZooDbHelper(this);
+        List<Zoo> zoos = zooDbHelper.getAll();
         for (Zoo zoo : zoos) {
             names.add(zoo.getName());
-        }*/
+            names.add(zoo.getCity());
+            names.add(zoo.getCountry());
+            names.add(zoo.getSize() + "");
+            names.add(zoo.getYearlyIncome() + "");
+            names.add("-------------------------");
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
 
         listview.setAdapter(adapter);
