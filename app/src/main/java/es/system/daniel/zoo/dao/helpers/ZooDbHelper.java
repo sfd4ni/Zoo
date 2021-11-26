@@ -112,6 +112,69 @@ public class ZooDbHelper extends CommonDbHelper {
 
         return zoo;
     }
+
+    public int getId(String name) {
+        Integer id = null;
+        Cursor cursor = null;
+        try {
+            cursor = super.getAll(ZooContract.ZooEntry.TABLE_NAME,
+                    null,
+                    ZooContract.ZooEntry.NAME + " = ?",
+                    new String[]{name},
+                    null,
+                    null,
+                    null);
+
+            if (cursor.moveToFirst()) {
+                @SuppressLint("Range") int idDb = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry._ID)));
+                id = idDb;
+            }
+        } catch (Exception exception) {
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return id;
+    }
+
+    public Zoo getByNumericId(int id) {
+        Zoo zoo = null;
+        Cursor cursor = null;
+        try {
+            cursor = super.getAll(ZooContract.ZooEntry.TABLE_NAME,
+                    null,
+                    ZooContract.ZooEntry._ID + " = ?",
+                    new String[]{id+""},
+                    null,
+                    null,
+                    null);
+
+            if (cursor.moveToFirst()) {
+                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.NAME));
+                @SuppressLint("Range") String city = cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.CITY));
+                @SuppressLint("Range") String country = cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.COUNTRY));
+                @SuppressLint("Range") int size = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.SIZE)));
+                @SuppressLint("Range") int yearlyIncome = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        ZooContract.ZooEntry.YEARLY_INCOME)));
+                zoo = new Zoo(name, city, country, size, yearlyIncome);
+            }
+        } catch (Exception exception) {
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return zoo;
+    }
+
     /**
      * Funcion encargada en eliminar un elemento de la BBDD
      * @param name identificador de consulta de la BBDD
