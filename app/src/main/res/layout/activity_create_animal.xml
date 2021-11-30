@@ -17,15 +17,219 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <Button
+        android:id="@+id/insertItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="632dp"
+        android:onClick="insertAnimal"
+        android:text="@string/insert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="88dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Create animal"
-        app:layout_constraintStart_toEndOf="@+id/changeCreateViewToAnimal"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/idAnimal"
         app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/sexAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/speciesAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="316dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/birthAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextZoo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/zooAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextContinent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/idContinent"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <EditText
+        android:id="@+id/editTextCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/countryAnimal"
+        app:layout_constraintTop_toBottomOf="@+id/changeCreateViewToAnimal" />
+
+    <TextView
+        android:id="@+id/idAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="37dp"
+        android:ems="10"
+        android:text="@string/id"
+        app:layout_constraintBottom_toTopOf="@+id/sexAnimal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Id" />
+
+    <TextView
+        android:id="@+id/sexAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="38dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sex"
+        app:layout_constraintBottom_toTopOf="@+id/countryAnimal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSex"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idAnimal" />
+
+    <TextView
+        android:id="@+id/countryAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Country"
+        app:layout_constraintBottom_toTopOf="@+id/idContinent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexAnimal" />
+
+    <TextView
+        android:id="@+id/idContinent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Continent"
+        app:layout_constraintBottom_toTopOf="@+id/speciesAnimal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextContinent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countryAnimal" />
+
+    <TextView
+        android:id="@+id/speciesAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="SpeciesID"
+        app:layout_constraintBottom_toTopOf="@+id/zooAnimal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSpecies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idContinent" />
+
+    <TextView
+        android:id="@+id/zooAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="ZooID"
+        app:layout_constraintBottom_toTopOf="@+id/birthAnimal"
+        app:layout_constraintEnd_toStartOf="@+id/editTextZoo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speciesAnimal" />
+
+    <TextView
+        android:id="@+id/birthAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="305dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Birth year"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextBirth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zooAnimal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

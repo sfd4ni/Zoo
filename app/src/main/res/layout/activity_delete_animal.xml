@@ -12,18 +12,48 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="59dp"
         android:onClick="changeAnimalsView"
         android:text="@string/back"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+
+    <Button
+        android:id="@+id/deleteZoo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="232dp"
+        android:onClick="deleteAnimal"
+        android:text="@string/delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="83dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Delete animal"
-        app:layout_constraintStart_toEndOf="@+id/changeDeleteViewToAnimal"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName7"
+        app:layout_constraintTop_toBottomOf="@+id/changeDeleteViewToAnimal" />
+
+    <TextView
+        android:id="@+id/editTextTextPersonName7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="582dp"
+        android:ems="10"
+        android:text="Id"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextId"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeDeleteViewToAnimal" />
 </androidx.constraintlayout.widget.ConstraintLayout>
