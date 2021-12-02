@@ -109,6 +109,39 @@ public class SpeciesDbHelper extends CommonDbHelper {
 
         return species;
     }
+
+    public Species getByNumericId(int id) {
+        Species species = null;
+        Cursor cursor = null;
+        try {
+            cursor = super.getAll(SpeciesContract.SpeciesEntry.TABLE_NAME,
+                    null,
+                    SpeciesContract.SpeciesEntry._ID + " = ?",
+                    new String[]{id+""},
+                    null,
+                    null,
+                    null);
+
+            if (cursor.moveToFirst()) {
+                @SuppressLint("Range") String vulgarName = cursor.getString(cursor.getColumnIndex(
+                        SpeciesContract.SpeciesEntry.VULGAR_NAME));
+                @SuppressLint("Range") String scientificName = cursor.getString(cursor.getColumnIndex(
+                        SpeciesContract.SpeciesEntry.SCIENTIFIC_NAME));
+                @SuppressLint("Range") String family = cursor.getString(cursor.getColumnIndex(
+                        SpeciesContract.SpeciesEntry.FAMILY));
+                @SuppressLint("Range") int endangered = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                        SpeciesContract.SpeciesEntry.ENDANGERED)));
+                species = new Species(vulgarName, scientificName, family, endangered == 1);
+            }
+        } catch (Exception exception) {
+        } finally {
+            if (!cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return species;
+    }
     /**
      * Funcion encargada en eliminar un elemento de la BBDD
      * @param vulgarName identificador de consulta de la BBDD

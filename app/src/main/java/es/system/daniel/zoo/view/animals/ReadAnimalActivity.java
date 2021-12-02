@@ -15,6 +15,7 @@ import java.util.List;
 
 import es.system.daniel.R;
 import es.system.daniel.zoo.dao.helpers.AnimalDbHelper;
+import es.system.daniel.zoo.dao.helpers.SpeciesDbHelper;
 import es.system.daniel.zoo.dao.helpers.ZooDbHelper;
 import es.system.daniel.zoo.model.Animal;
 
@@ -24,6 +25,7 @@ public class ReadAnimalActivity extends AppCompatActivity {
     private ArrayList<String> names;
     private AnimalDbHelper animalDbHelper;
     private ZooDbHelper zooDbHelper;
+    private SpeciesDbHelper speciesDbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class ReadAnimalActivity extends AppCompatActivity {
 
         listview = findViewById(R.id.animalsListView);
         names = new ArrayList<>();
+        speciesDbHelper = new SpeciesDbHelper(this);
         animalDbHelper = new AnimalDbHelper(this);
         zooDbHelper = new ZooDbHelper(this);
         List<Animal> animals = animalDbHelper.getAll();
@@ -38,7 +41,7 @@ public class ReadAnimalActivity extends AppCompatActivity {
             names.add(animal.getId()+"");
             names.add(animal.getCountry());
             names.add(animal.getBirthYear()+"");
-            names.add(animal.getSpeciesId()+"");
+            names.add(speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
             names.add(animal.getContinent());
             names.add(animal.getSex());
             names.add(zooDbHelper.getByNumericId(animal.getZooId()).getName());
