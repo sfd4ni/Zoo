@@ -24,62 +24,68 @@
         android:id="@+id/insertItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="101dp"
         android:onClick="insertSpecies"
         android:text="@string/insert"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName10"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextVulgarName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="42dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="46dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/editTextScientificName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName7"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextScientificName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="82dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFamily"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName8" />
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName8"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVulgarName" />
 
     <EditText
         android:id="@+id/editTextFamily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="57dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="102dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName9"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName9" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextScientificName" />
 
-    <EditText
-        android:id="@+id/editTextEndangered"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="57dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="127dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName10"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName10" />
+        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
 
     <TextView
         android:id="@+id/editTextTextPersonName7"
@@ -87,7 +93,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginBottom="57dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Vulgar Name"
@@ -101,8 +107,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="11dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="81dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Sci. Name"
@@ -131,12 +137,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="11dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="199dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Endangered"
-        app:layout_constraintBottom_toTopOf="@+id/insertItem"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEndangered"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
 
