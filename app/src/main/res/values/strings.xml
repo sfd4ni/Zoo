@@ -37,4 +37,5 @@
     <string name="change_view_species">Go to Species</string>
     <string name="insert">Insert</string>
     <string name="id">ID</string>
+    <string name="vulgar_name">Vulgar name</string>
 </resources>
