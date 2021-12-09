@@ -10,12 +10,14 @@
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_delete_animal.xml" value="0.26268115942028986" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_delete_species.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_delete_zoo.xml" value="0.26268115942028986" />
+        <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_info_zoo.xml" value="0.33" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_read_animal.xml" value="0.26268115942028986" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_read_species.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_read_zoo.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_update_animal.xml" value="0.25" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_update_species.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_update_zoo.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/activity_zoos.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Danieldb/Desktop/Zoo/Zoo/app/src/main/res/layout/spinner.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_animals.xml" value="0.3651041666666667" />
         <entry key="app/src/main/res/layout/activity_create_animal.xml" value="0.3651041666666667" />
@@ -44,7 +46,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

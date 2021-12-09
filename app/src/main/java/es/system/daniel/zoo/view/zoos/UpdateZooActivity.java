@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import es.system.daniel.R;
 import es.system.daniel.zoo.dao.helpers.ZooDbHelper;
+import es.system.daniel.zoo.model.Animal;
 import es.system.daniel.zoo.model.Zoo;
 
 public class UpdateZooActivity extends AppCompatActivity {
@@ -19,6 +20,20 @@ public class UpdateZooActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_zoo);
         zooDbHelper = new ZooDbHelper(this);
+
+        Zoo zoo = (Zoo) getIntent().getSerializableExtra("Zoo");
+
+        EditText editTextName = (EditText) this.findViewById(R.id.editTextName);
+        EditText editTextCity = (EditText) this.findViewById(R.id.editTextCity);
+        EditText editTextCountry = (EditText) this.findViewById(R.id.editTextCountry);
+        EditText editTextSize = (EditText) this.findViewById(R.id.editTextSize);
+        EditText editTextYearlyIncome = (EditText) this.findViewById(R.id.editTextYearlyIncome);
+
+        editTextName.setText(zoo.getName());
+        editTextCity.setText(zoo.getCity());
+        editTextCountry.setText(zoo.getCountry());
+        editTextSize.setText(zoo.getSize()+"");
+        editTextYearlyIncome.setText(zoo.getYearlyIncome()+"");
     }
     public void changeZoosView(View view) {
         Intent previousView = new Intent(UpdateZooActivity.this,

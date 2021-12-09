@@ -104,38 +104,36 @@ public class AnimalDbHelper extends CommonDbHelper {
         return animal;
     }
     public List<Animal> getByZooId(int zooId) {
-        Animal animal = null;
         List<Animal> animals = null;
         Cursor cursor = null;
+        Animal animal = null;
         try {
             cursor = super.getAll(AnimalContract.AnimalEntry.TABLE_NAME,
-                    null,
-                    AnimalContract.AnimalEntry.ZOO_ID + " = ?",
-                    new String[]{String.valueOf(zooId)},
-                    null,
-                    null,
-                    null);
+                    null, AnimalContract.AnimalEntry.ZOO_ID + " = ?", new String[]{String.valueOf(zooId)},
+                    null, null, null);
 
-            animals = new ArrayList<>();
-            do {
-                @SuppressLint("Range") int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry._ID)));
-                @SuppressLint("Range") String sex = cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry.SEX));
-                @SuppressLint("Range") String country = cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry.COUNTRY));
-                @SuppressLint("Range") String continent = cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry.CONTINENT));
-                @SuppressLint("Range") int speciesId = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry.SPECIES_ID)));
-                @SuppressLint("Range") int birthYear = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
-                        AnimalContract.AnimalEntry.BIRTH_YEAR)));
-                animal = new Animal(sex, country, continent, id, speciesId, zooId, birthYear);
-                animals.add(animal);
-            } while (cursor.moveToNext());
-            return animals;
+            if(cursor.moveToFirst()){
+                animals = new ArrayList<>();
+                do {
+                    @SuppressLint("Range") int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry._ID)));
+                    @SuppressLint("Range") String sex = cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry.SEX));
+                    @SuppressLint("Range") String country = cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry.COUNTRY));
+                    @SuppressLint("Range") String continent = cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry.CONTINENT));
+                    @SuppressLint("Range") int speciesId = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry.SPECIES_ID)));
+                    @SuppressLint("Range") int birthYear = Integer.parseInt(cursor.getString(cursor.getColumnIndex(
+                            AnimalContract.AnimalEntry.BIRTH_YEAR)));
+                    animal = new Animal(sex, country, continent, id, speciesId, zooId, birthYear);
+                    animals.add(animal);
+                } while (cursor.moveToNext());
+                return animals;
+            }
         } catch (Exception exception) {
-
+            // TODO: Se debe de implementar las excepciones
         } finally {
             if (!cursor.isClosed()) {
                 cursor.close();

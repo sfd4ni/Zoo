@@ -36,7 +36,6 @@
         android:layout_marginTop="120dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Delete zoo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"

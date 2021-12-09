@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +36,28 @@ public class InfoZooActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_zoo);
         zoo = (Zoo) getIntent().getSerializableExtra("Zoo");
-        listview = findViewById(R.id.animalsListView);
+        listview = findViewById(R.id.animalsZooListView);
         names = new ArrayList<>();
         speciesDbHelper = new SpeciesDbHelper(this);
         animalDbHelper = new AnimalDbHelper(this);
         zooDbHelper = new ZooDbHelper(this);
+
+        TextView txtViewName = (TextView) this.findViewById(R.id.textViewName);
+        TextView txtViewCity = (TextView) this.findViewById(R.id.textViewCity);
+        TextView txtViewCountry = (TextView) this.findViewById(R.id.textViewCountry);
+        TextView txtViewSize = (TextView) this.findViewById(R.id.textViewSize);
+        TextView txtViewYearlyIncome = (TextView) this.findViewById(R.id.textViewYearlyInc);
+
+        txtViewName.setText(zoo.getName());
+        txtViewCity.setText(zoo.getCity());
+        txtViewCountry.setText(zoo.getCountry());
+        txtViewSize.setText(zoo.getSize()+"");
+        txtViewYearlyIncome.setText(zoo.getYearlyIncome()+"");
+
+
         List<Animal> animals = animalDbHelper.getByZooId(zooDbHelper.getId(zoo.getName()));
+        //List<Animal> animals = animalDbHelper.getAll();
+        System.out.println(animals.size());
         for (Animal animal : animals) {
             names.add(animal.getId() + ", " + speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
         }
@@ -59,19 +76,18 @@ public class InfoZooActivity extends AppCompatActivity {
     }
     public void changeShowView(View view) {
         Intent nextView = new Intent(InfoZooActivity.this,
-                ReadAnimalActivity.class);
+                ReadZooActivity.class);
         startActivity(nextView);
     }
     public void deleteAnimal(View view) {
-        AnimalDbHelper animalDbHelper = new AnimalDbHelper(this);
-        animalDbHelper.delete(zoo.getName());
+        zooDbHelper.delete(zoo.getName());
         Intent nextView = new Intent(InfoZooActivity.this,
-                ReadAnimalActivity.class);
+                ReadZooActivity.class);
         startActivity(nextView);
     }
 
     public void updateAnimal(View view) {
-        Intent myIntent = new Intent(InfoZooActivity.this, UpdateAnimalActivity.class);
+        Intent myIntent = new Intent(InfoZooActivity.this, UpdateZooActivity.class);
         myIntent.putExtra("Zoo", zoo);
         startActivity(myIntent);
     }

@@ -38,7 +38,9 @@ public class ReadAnimalActivity extends AppCompatActivity {
         zooDbHelper = new ZooDbHelper(this);
         List<Animal> animals = animalDbHelper.getAll();
         for (Animal animal : animals) {
-            names.add(animal.getId() + ", " + speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
+            if (speciesDbHelper.getByNumericId(animal.getSpeciesId()) != null) {
+                names.add(animal.getId() + ", " + speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
+            }
             /*names.add(animal.getCountry());
             names.add(animal.getBirthYear()+"");
             names.add(speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
