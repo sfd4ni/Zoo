@@ -2,11 +2,12 @@ package es.system.daniel.zoo.model;
 
 import android.content.ContentValues;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
 
-public class Species {
+public class Species implements Serializable {
     private String vulgarName, scientificName, family;
     private boolean endangered;
 

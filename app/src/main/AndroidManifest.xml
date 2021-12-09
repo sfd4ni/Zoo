@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Zoo">
         <activity
+            android:name=".zoo.view.zoos.InfoZooActivity"
+            android:exported="true" />
+        <activity
+            android:name=".zoo.view.animals.InfoAnimalActivity"
+            android:exported="true" />
+        <activity
             android:name=".zoo.view.species.DeleteSpeciesActivity"
             android:exported="true" />
         <activity

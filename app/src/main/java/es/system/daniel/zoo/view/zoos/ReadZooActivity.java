@@ -20,6 +20,7 @@ import java.util.List;
 import es.system.daniel.R;
 import es.system.daniel.zoo.dao.helpers.ZooDbHelper;
 import es.system.daniel.zoo.model.Zoo;
+import es.system.daniel.zoo.view.animals.InfoAnimalActivity;
 
 public class ReadZooActivity extends AppCompatActivity {
 
@@ -37,11 +38,11 @@ public class ReadZooActivity extends AppCompatActivity {
         List<Zoo> zoos = zooDbHelper.getAll();
         for (Zoo zoo : zoos) {
             names.add(zoo.getName());
-            names.add(zoo.getCity());
+            /*names.add(zoo.getCity());
             names.add(zoo.getCountry());
             names.add(zoo.getSize() + "");
             names.add(zoo.getYearlyIncome() + "");
-            names.add("-------------------------");
+            names.add("-------------------------");*/
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
 
@@ -50,7 +51,9 @@ public class ReadZooActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(ReadZooActivity.this, "Has pulsado: "+ names.get(position), Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(ReadZooActivity.this, InfoZooActivity.class);
+                myIntent.putExtra("Zoo", zoos.get(position));
+                startActivity(myIntent);
             }
         });
     }

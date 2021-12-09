@@ -38,4 +38,14 @@
     <string name="insert">Insert</string>
     <string name="id">ID</string>
     <string name="vulgar_name">Vulgar name</string>
+    <string name="sex">Sex</string>
+    <string name="continent">Continent</string>
+    <string name="country">Country</string>
+    <string name="birth">Birth Year</string>
+    <string name="zoo">Zoo</string>
+    <string name="species">Species</string>
+    <string name="yearlyinc">YearlyInc</string>
+    <string name="size">Size</string>
+    <string name="city">City</string>
+    <string name="name">Name</string>
 </resources>

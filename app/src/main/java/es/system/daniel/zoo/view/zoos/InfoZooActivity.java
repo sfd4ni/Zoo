@@ -1,4 +1,4 @@
-package es.system.daniel.zoo.view.animals;
+package es.system.daniel.zoo.view.zoos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +17,14 @@ import es.system.daniel.zoo.dao.helpers.AnimalDbHelper;
 import es.system.daniel.zoo.dao.helpers.SpeciesDbHelper;
 import es.system.daniel.zoo.dao.helpers.ZooDbHelper;
 import es.system.daniel.zoo.model.Animal;
+import es.system.daniel.zoo.model.Zoo;
+import es.system.daniel.zoo.view.animals.InfoAnimalActivity;
+import es.system.daniel.zoo.view.animals.ReadAnimalActivity;
+import es.system.daniel.zoo.view.animals.UpdateAnimalActivity;
 
-public class ReadAnimalActivity extends AppCompatActivity {
+public class InfoZooActivity extends AppCompatActivity {
 
+    Zoo zoo;
     private ListView listview;
     private ArrayList<String> names;
     private AnimalDbHelper animalDbHelper;
@@ -29,23 +33,16 @@ public class ReadAnimalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_animal);
-
+        setContentView(R.layout.activity_info_zoo);
+        zoo = (Zoo) getIntent().getSerializableExtra("Zoo");
         listview = findViewById(R.id.animalsListView);
         names = new ArrayList<>();
         speciesDbHelper = new SpeciesDbHelper(this);
         animalDbHelper = new AnimalDbHelper(this);
         zooDbHelper = new ZooDbHelper(this);
-        List<Animal> animals = animalDbHelper.getAll();
+        List<Animal> animals = animalDbHelper.getByZooId(zooDbHelper.getId(zoo.getName()));
         for (Animal animal : animals) {
             names.add(animal.getId() + ", " + speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
-            /*names.add(animal.getCountry());
-            names.add(animal.getBirthYear()+"");
-            names.add(speciesDbHelper.getByNumericId(animal.getSpeciesId()).getVulgarName());
-            names.add(animal.getContinent());
-            names.add(animal.getSex());
-            names.add(zooDbHelper.getByNumericId(animal.getZooId()).getName());
-            names.add("-------------------------");*/
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);
 
@@ -54,16 +51,28 @@ public class ReadAnimalActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent myIntent = new Intent(ReadAnimalActivity.this, InfoAnimalActivity.class);
+                Intent myIntent = new Intent(InfoZooActivity.this, InfoAnimalActivity.class);
                 myIntent.putExtra("Animal", animals.get(position));
                 startActivity(myIntent);
             }
         });
     }
-    public void changeAnimalsView(View view) {
-        Intent previousView = new Intent(ReadAnimalActivity.this,
-                AnimalsActivity.class);
-        startActivity(previousView);
+    public void changeShowView(View view) {
+        Intent nextView = new Intent(InfoZooActivity.this,
+                ReadAnimalActivity.class);
+        startActivity(nextView);
+    }
+    public void deleteAnimal(View view) {
+        AnimalDbHelper animalDbHelper = new AnimalDbHelper(this);
+        animalDbHelper.delete(zoo.getName());
+        Intent nextView = new Intent(InfoZooActivity.this,
+                ReadAnimalActivity.class);
+        startActivity(nextView);
+    }
 
+    public void updateAnimal(View view) {
+        Intent myIntent = new Intent(InfoZooActivity.this, UpdateAnimalActivity.class);
+        myIntent.putExtra("Zoo", zoo);
+        startActivity(myIntent);
     }
 }

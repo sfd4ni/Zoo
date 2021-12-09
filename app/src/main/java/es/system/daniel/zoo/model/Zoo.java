@@ -2,12 +2,13 @@ package es.system.daniel.zoo.model;
 
 import android.content.ContentValues;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import es.system.daniel.zoo.dao.contracts.SpeciesContract;
 import es.system.daniel.zoo.dao.contracts.ZooContract;
 
-public class Zoo {
+public class Zoo implements Serializable {
     private String name, city, country;
     private int size, yearlyIncome;
     public Zoo(String name, String city, String country, int size, int yearlyIncome) {

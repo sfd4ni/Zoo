@@ -20,6 +20,24 @@ public class UpdateAnimalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_animal);
         this.animalDbHelper = new AnimalDbHelper(this);
+        Animal animal = (Animal) getIntent().getSerializableExtra("Animal");
+        if (animal!=null) {
+            EditText editTextId = (EditText) this.findViewById(R.id.editTextId);
+            EditText editTextSex = (EditText) this.findViewById(R.id.editTextSex);
+            EditText editTextCountry = (EditText) this.findViewById(R.id.editTextCountry);
+            EditText editTextContinent = (EditText) this.findViewById(R.id.editTextContinent);
+            EditText editTextSpeciesId = (EditText) this.findViewById(R.id.editTextSpecies);
+            EditText editTextZooId = (EditText) this.findViewById(R.id.editTextZoo);
+            EditText editTextBirthYear = (EditText) this.findViewById(R.id.editTextBirth);
+
+            editTextBirthYear.setText(animal.getBirthYear()+"");
+            editTextZooId.setText(animal.getZooId()+"");
+            editTextContinent.setText(animal.getContinent());
+            editTextCountry.setText(animal.getCountry());
+            editTextId.setText(animal.getId()+"");
+            editTextSex.setText(animal.getSex());
+            editTextSpeciesId.setText(animal.getSpeciesId()+"");
+        }
     }
     public void changeAnimalsView(View view) {
         Intent previousView = new Intent(UpdateAnimalActivity.this,
